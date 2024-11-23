@@ -1,0 +1,59 @@
+package br.pucrs.thomaz.trabfdsfinal.infrastructure.rest.controllers;
+
+import br.pucrs.thomaz.trabfdsfinal.application.dto.ClienteDTO;
+import br.pucrs.thomaz.trabfdsfinal.application.usecase.Cliente.CriarClienteUseCase;
+import br.pucrs.thomaz.trabfdsfinal.application.usecase.Cliente.EditarClienteUseCase;
+import br.pucrs.thomaz.trabfdsfinal.application.usecase.Cliente.ListarClientesUseCase; // Corrigir para o nome correto
+
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/clientes")
+public class ClienteController {
+
+    private final CriarClienteUseCase criarClienteUseCase;
+    private final ListarClientesUseCase listarClientesUseCase;
+    private final EditarClienteUseCase editarClienteUseCase;
+
+    public ClienteController(CriarClienteUseCase criarClienteUseCase, ListarClientesUseCase listarClientesUseCase, EditarClienteUseCase editarClienteUseCase) {
+        this.criarClienteUseCase = criarClienteUseCase;
+        this.listarClientesUseCase = listarClientesUseCase;
+        this.editarClienteUseCase = editarClienteUseCase;
+    }
+
+    @PostMapping
+    public ResponseEntity<ClienteDTO> criarCliente(@RequestBody ClienteDTO clienteDTO) {
+        try {
+            ClienteDTO criado = criarClienteUseCase.execute(clienteDTO.getNome(), clienteDTO.getEmail());
+            return new ResponseEntity<>(criado, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping
+    public ResponseEntity<List<ClienteDTO>> listarClientes() {
+        try {
+            List<ClienteDTO> clientes = listarClientesUseCase.execute();
+            return new ResponseEntity<>(clientes, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PutMapping("/{codigo}")
+    public ResponseEntity<ClienteDTO> editarCliente(@PathVariable Long codigo, @RequestBody ClienteDTO clienteDTO) {
+        try {
+            ClienteDTO atualizado = editarClienteUseCase.execute(codigo, clienteDTO.getNome(), clienteDTO.getEmail());
+            return new ResponseEntity<>(atualizado, HttpStatus.OK);
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+}
