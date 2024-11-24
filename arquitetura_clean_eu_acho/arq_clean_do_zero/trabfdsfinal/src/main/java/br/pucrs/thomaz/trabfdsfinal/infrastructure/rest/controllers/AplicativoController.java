@@ -1,9 +1,12 @@
 package br.pucrs.thomaz.trabfdsfinal.infrastructure.rest.controllers;
 
 import br.pucrs.thomaz.trabfdsfinal.application.dto.AplicativoDTO;
+import br.pucrs.thomaz.trabfdsfinal.application.dto.AssinaturaDTO;
 import br.pucrs.thomaz.trabfdsfinal.application.usecase.Aplicativo.CriarAplicativoUseCase;
 import br.pucrs.thomaz.trabfdsfinal.application.usecase.Aplicativo.EditarAplicativoUseCase;
 import br.pucrs.thomaz.trabfdsfinal.application.usecase.Aplicativo.ListarAplicativosUseCase; // Corrigir para o nome correto
+import br.pucrs.thomaz.trabfdsfinal.application.usecase.Assinatura.AssinaturaPorAplicativo;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,14 +18,16 @@ import java.util.List;
 public class AplicativoController {
 
     private final CriarAplicativoUseCase criarAplicativoUseCase;
-    private final ListarAplicativosUseCase listarAplicativosUseCase; // Usar o nome correto da classe
-    private final EditarAplicativoUseCase editarAplicativoUseCase; // Incluir a injeção de dependência
+    private final ListarAplicativosUseCase listarAplicativosUseCase; 
+    private final EditarAplicativoUseCase editarAplicativoUseCase; 
+    private final AssinaturaPorAplicativo assinaturaPorAplicativo;
 
     // Injeção de dependência dos casos de uso
-    public AplicativoController(CriarAplicativoUseCase criarAplicativoUseCase, ListarAplicativosUseCase listarAplicativosUseCase, EditarAplicativoUseCase editarAplicativoUseCase) {
+    public AplicativoController(CriarAplicativoUseCase criarAplicativoUseCase, ListarAplicativosUseCase listarAplicativosUseCase, EditarAplicativoUseCase editarAplicativoUseCase, AssinaturaPorAplicativo assinaturaPorAplicativo) {
         this.criarAplicativoUseCase = criarAplicativoUseCase;
         this.listarAplicativosUseCase = listarAplicativosUseCase; // Corrigir a injeção
         this.editarAplicativoUseCase = editarAplicativoUseCase; // Incluir a injeção
+        this.assinaturaPorAplicativo = assinaturaPorAplicativo;
     }
 
     // Endpoint para criar um aplicativo
@@ -57,6 +62,18 @@ public class AplicativoController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+     @GetMapping("/{id}/assinaturas")
+    public ResponseEntity<List<AssinaturaDTO>> listarAssinaturas(@PathVariable Long id) {
+        try {
+            List<AssinaturaDTO> assinaturas = assinaturaPorAplicativo.execute(id);
+            return ResponseEntity.ok(assinaturas);
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

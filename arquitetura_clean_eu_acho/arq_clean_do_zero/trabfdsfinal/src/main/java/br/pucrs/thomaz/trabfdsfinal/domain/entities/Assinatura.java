@@ -114,4 +114,10 @@ public class Assinatura {
     public void setFimVigencia(LocalDate fimVigencia) {
         this.fimVigencia = fimVigencia;
     }
+
+    public boolean isValida() {
+        LocalDate hoje = LocalDate.now();
+        return status && (hoje.isEqual(inicioVigencia) || hoje.isAfter(inicioVigencia))
+               && (hoje.isBefore(fimVigencia) || hoje.isEqual(fimVigencia));
+    }
 }
