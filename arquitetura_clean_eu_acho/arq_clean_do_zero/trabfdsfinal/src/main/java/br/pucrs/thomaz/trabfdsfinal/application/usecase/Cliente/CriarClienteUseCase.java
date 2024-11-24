@@ -16,9 +16,9 @@ public class CriarClienteUseCase {
     }
 
     public ClienteDTO execute(String nome, String email) {
-    Cliente cliente = Cliente.criar(nome, email);
-    cliente = clienteRepository.save(cliente);
-    return new ClienteDTO(cliente.getCodigo(), cliente.getNome(), cliente.getEmail());
+        Cliente cliente = Cliente.criar(nome, email);
+        cliente = clienteRepository.save(cliente);
+        return new ClienteDTO(cliente.getCodigo(), cliente.getNome(), cliente.getEmail());
 }
 
 }

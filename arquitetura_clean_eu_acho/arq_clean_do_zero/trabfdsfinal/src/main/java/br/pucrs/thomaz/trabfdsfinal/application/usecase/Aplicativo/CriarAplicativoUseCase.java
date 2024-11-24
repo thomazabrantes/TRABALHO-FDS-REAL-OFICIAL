@@ -15,9 +15,9 @@ public class CriarAplicativoUseCase {
     }
 
     public AplicativoDTO execute(String nome, double custoMensal) {
-    Aplicativo aplicativo = Aplicativo.criar(nome, custoMensal);
-    aplicativo = aplicativoRepository.save(aplicativo);
-    return new AplicativoDTO(aplicativo.getCodigo(), aplicativo.getNome(), aplicativo.getCustoMensal());
+        Aplicativo aplicativo = Aplicativo.criar(nome, custoMensal);
+        aplicativo = aplicativoRepository.save(aplicativo);
+        return new AplicativoDTO(aplicativo.getCodigo(), aplicativo.getNome(), aplicativo.getCustoMensal());
 }
 
 }

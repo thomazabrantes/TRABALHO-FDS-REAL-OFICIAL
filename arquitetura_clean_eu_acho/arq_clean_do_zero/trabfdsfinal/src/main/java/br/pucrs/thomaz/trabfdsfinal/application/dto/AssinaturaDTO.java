@@ -2,11 +2,14 @@ package br.pucrs.thomaz.trabfdsfinal.application.dto;
 
 import java.time.LocalDate;
 
+import br.pucrs.thomaz.trabfdsfinal.domain.entities.Aplicativo;
+import br.pucrs.thomaz.trabfdsfinal.domain.entities.Cliente;
+
 public class AssinaturaDTO {
     
     private Long codigo;
-    private AplicativoDTO aplicativo;
-    private ClienteDTO cliente;
+    private Aplicativo aplicativo;
+    private Cliente cliente;
     private LocalDate inicioVigencia;
     private LocalDate fimVigencia;
 
@@ -15,12 +18,12 @@ public class AssinaturaDTO {
     }
 
     // Construtor que recebe todos os parâmetros
-    public AssinaturaDTO(Long codigo, AplicativoDTO aplicativo, ClienteDTO cliente, LocalDate inicioVigencia, LocalDate fimVigencia) {
+    public AssinaturaDTO(Long codigo, Aplicativo aplicativo, Cliente cliente) {
         this.codigo = codigo;
         this.aplicativo = aplicativo;
         this.cliente = cliente;
-        this.inicioVigencia = inicioVigencia;
-        this.fimVigencia = fimVigencia;
+        this.inicioVigencia = LocalDate.now();
+        this.fimVigencia = this.inicioVigencia.plusDays(30);
     }
 
     // Getters e Setters
@@ -32,19 +35,19 @@ public class AssinaturaDTO {
         this.codigo = codigo;
     }
 
-    public AplicativoDTO getAplicativo() {
+    public Aplicativo getAplicativo() {
         return aplicativo;
     }
 
-    public void setAplicativo(AplicativoDTO aplicativo) {
+    public void setAplicativo(Aplicativo aplicativo) {
         this.aplicativo = aplicativo;
     }
 
-    public ClienteDTO getCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
 
-    public void setCliente(ClienteDTO cliente) {
+    public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 

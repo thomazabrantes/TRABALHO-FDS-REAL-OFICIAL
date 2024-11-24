@@ -7,14 +7,14 @@ public class AssinaturaMapper {
     public static AssinaturaDTO toDTO(Assinatura assinatura) {
         AssinaturaDTO dto = new AssinaturaDTO();
         dto.setCodigo(assinatura.getCodigo());
-        dto.setAplicativo(AplicativoMapper.toDTO(assinatura.getAplicativo()));
-        dto.setCliente(ClienteMapper.toDTO(assinatura.getCliente()));
+        dto.setAplicativo((assinatura.getAplicativo()));
+        dto.setCliente((assinatura.getCliente()));
         dto.setInicioVigencia(assinatura.getInicioVigencia());
         dto.setFimVigencia(assinatura.getFimVigencia());
         return dto;
     }
 
     public static Assinatura toEntity(AssinaturaDTO dto) {
-        return Assinatura.criar(AplicativoMapper.toEntity(dto.getAplicativo()), ClienteMapper.toEntity(dto.getCliente()), dto.getInicioVigencia(), dto.getFimVigencia());
+        return Assinatura.criar(dto.getAplicativo(), dto.getCliente());
     }
 }
