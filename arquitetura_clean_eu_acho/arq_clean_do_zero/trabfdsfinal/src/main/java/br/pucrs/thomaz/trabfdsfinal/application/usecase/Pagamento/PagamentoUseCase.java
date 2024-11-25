@@ -54,9 +54,11 @@ public class PagamentoUseCase {
             if (assinatura.getFimVigencia().isBefore(dataPagamento)) {
                 // Reativação: 30 dias + dias extras a partir da data atual
                 assinatura.setFimVigencia(dataPagamento.plusDays(30 + diasExtras));
+                assinatura.setStatus(true);
             } else {
                 // Extensão: 30 dias + dias extras a partir da validade atual
                 assinatura.setFimVigencia(assinatura.getFimVigencia().plusDays(30 + diasExtras));
+                assinatura.setStatus(true);
             }
 
             assinaturaRepository.save(assinatura);
