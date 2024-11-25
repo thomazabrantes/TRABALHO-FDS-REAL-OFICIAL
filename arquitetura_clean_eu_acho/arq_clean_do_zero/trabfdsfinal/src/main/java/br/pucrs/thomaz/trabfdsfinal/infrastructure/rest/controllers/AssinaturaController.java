@@ -62,4 +62,5 @@ public class AssinaturaController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+    
 }

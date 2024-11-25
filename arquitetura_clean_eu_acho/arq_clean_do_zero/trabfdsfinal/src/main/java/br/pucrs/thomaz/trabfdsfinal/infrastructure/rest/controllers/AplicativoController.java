@@ -6,6 +6,7 @@ import br.pucrs.thomaz.trabfdsfinal.application.usecase.Aplicativo.CriarAplicati
 import br.pucrs.thomaz.trabfdsfinal.application.usecase.Aplicativo.EditarAplicativoUseCase;
 import br.pucrs.thomaz.trabfdsfinal.application.usecase.Aplicativo.ListarAplicativosUseCase; // Corrigir para o nome correto
 import br.pucrs.thomaz.trabfdsfinal.application.usecase.Assinatura.AssinaturaPorAplicativo;
+import br.pucrs.thomaz.trabfdsfinal.application.usecase.Assinatura.VerificarValidade;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,20 +15,23 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/aplicativos")
+@RequestMapping("/servcad/aplicativos")
 public class AplicativoController {
 
     private final CriarAplicativoUseCase criarAplicativoUseCase;
     private final ListarAplicativosUseCase listarAplicativosUseCase; 
     private final EditarAplicativoUseCase editarAplicativoUseCase; 
     private final AssinaturaPorAplicativo assinaturaPorAplicativo;
+    private final VerificarValidade verificarValidade;
 
     // Injeção de dependência dos casos de uso
-    public AplicativoController(CriarAplicativoUseCase criarAplicativoUseCase, ListarAplicativosUseCase listarAplicativosUseCase, EditarAplicativoUseCase editarAplicativoUseCase, AssinaturaPorAplicativo assinaturaPorAplicativo) {
+    public AplicativoController(CriarAplicativoUseCase criarAplicativoUseCase, ListarAplicativosUseCase listarAplicativosUseCase, EditarAplicativoUseCase editarAplicativoUseCase, AssinaturaPorAplicativo assinaturaPorAplicativo, VerificarValidade verificarValidade) {
         this.criarAplicativoUseCase = criarAplicativoUseCase;
         this.listarAplicativosUseCase = listarAplicativosUseCase; // Corrigir a injeção
         this.editarAplicativoUseCase = editarAplicativoUseCase; // Incluir a injeção
         this.assinaturaPorAplicativo = assinaturaPorAplicativo;
+        this.verificarValidade = verificarValidade;
+
     }
 
     // Endpoint para criar um aplicativo
@@ -75,5 +79,12 @@ public class AplicativoController {
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @GetMapping("/{aplicativoId}/assinaturas/{assinaturaId}/valida")
+    public ResponseEntity<Boolean> verificarValidade(@PathVariable Long aplicativoId, @PathVariable Long assinaturaId) {
+        boolean valida = verificarValidade.execute(aplicativoId, assinaturaId);
+        return ResponseEntity.ok(valida);
+    
     }
 }
