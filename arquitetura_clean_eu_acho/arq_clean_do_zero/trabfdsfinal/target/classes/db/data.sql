@@ -40,3 +40,17 @@ VALUES
 ((SELECT codigo FROM Aplicativo WHERE nome = 'Aplicativo de Relacionamento'),
  (SELECT codigo FROM Cliente WHERE nome = 'Alexandre Costa'),
  '2024-11-24', '2024-12-01', TRUE);
+
+
+ -- Promoção 
+INSERT INTO Promocao (nome, dias_extras, desconto)
+VALUES ('ANUAL', 335, 0.4);
+
+INSERT INTO Promocao (nome, dias_extras, desconto)
+VALUES ('EXTRA15', 15, 0.0);
+
+INSERT INTO Promocao (nome, dias_extras, desconto)
+VALUES ('PROMO10', 0, 0.1);
+
+INSERT INTO Promocao (nome, dias_extras, desconto)
+VALUES ('PROMO30', 0, 0.3);

@@ -51,12 +51,6 @@ public class Pagamento {
             throw new IllegalArgumentException("Data de pagamento não pode ser nula");
         }
 
-        double valorEsperado = assinatura.getAplicativo().getCustoMensal();
-
-        if (valorPago != valorEsperado) {
-            throw new IllegalArgumentException("Valor pago não corresponde ao valor esperado da assinatura.");
-        }
-        
         LocalDate novaDataValidade;
         if (assinatura.getFimVigencia().isBefore(dataPagamento)) {
             // Assinatura vencida: reativa e adiciona 30 dias a partir da data de pagamento

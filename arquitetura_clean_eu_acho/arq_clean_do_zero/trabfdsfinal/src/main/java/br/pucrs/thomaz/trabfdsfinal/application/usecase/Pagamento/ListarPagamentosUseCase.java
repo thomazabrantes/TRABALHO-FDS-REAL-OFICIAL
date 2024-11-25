@@ -1,4 +1,4 @@
-package br.pucrs.thomaz.trabfdsfinal.application.usecase.Assinatura;
+package br.pucrs.thomaz.trabfdsfinal.application.usecase.Pagamento;
 
 import java.util.List;
 

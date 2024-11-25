@@ -7,8 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import br.pucrs.thomaz.trabfdsfinal.application.dto.PagamentoDTO;
-import br.pucrs.thomaz.trabfdsfinal.application.usecase.Assinatura.ListarPagamentosUseCase;
-import br.pucrs.thomaz.trabfdsfinal.application.usecase.Assinatura.PagamentoUseCase;
+import br.pucrs.thomaz.trabfdsfinal.application.usecase.Pagamento.ListarPagamentosUseCase;
+import br.pucrs.thomaz.trabfdsfinal.application.usecase.Pagamento.PagamentoUseCase;
 import br.pucrs.thomaz.trabfdsfinal.domain.entities.Pagamento;
 
 @RestController
