@@ -35,7 +35,7 @@ VALUES
 
 ((SELECT codigo FROM Aplicativo WHERE nome = 'Aplicativo de Viagens'),
  (SELECT codigo FROM Cliente WHERE nome = 'Breno Rei'),
- '2024-11-24', '2024-12-01', TRUE),
+ '2024-11-24', '2024-12-01', FALSE),
 
 ((SELECT codigo FROM Aplicativo WHERE nome = 'Aplicativo de Relacionamento'),
  (SELECT codigo FROM Cliente WHERE nome = 'Alexandre Costa'),

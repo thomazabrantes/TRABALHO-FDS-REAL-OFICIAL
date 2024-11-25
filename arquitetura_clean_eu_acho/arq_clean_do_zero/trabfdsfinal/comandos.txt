@@ -129,3 +129,44 @@ curl -X POST http://localhost:8080/registrarpagamento \
            "valorPago": 6.75,
            "promocao": "PROMO10"
          }'
+
+curl -X POST http://localhost:8080/registrarpagamento \
+     -H "Content-Type: application/json" \
+     -d '{
+           "assinatura": {
+             "codigo": 1
+           },
+           "valorPago": 13,
+           "promocao": "PROMO10"
+         }'   
+
+curl -X POST http://localhost:8080/registrarpagamento \
+     -H "Content-Type: application/json" \
+     -d '{
+           "assinatura": {
+             "codigo": 2
+           },
+           "valorPago": 3.594,
+           "promocao": "ANUAL"
+         }'  
+
+curl -X POST http://localhost:8080/registrarpagamento \
+     -H "Content-Type: application/json" \
+     -d '{
+           "assinatura": {
+             "codigo": 3
+           },
+           "valorPago": 6.75,
+           "promocao": "PROMO10"
+         }'    
+
+
+curl -X POST http://localhost:8080/registrarpagamento \
+     -H "Content-Type: application/json" \
+     -d '{
+           "assinatura": {
+             "codigo": 4
+           },
+           "valorPago": 10.99,
+           "promocao": "EXTRA15"
+         }'
