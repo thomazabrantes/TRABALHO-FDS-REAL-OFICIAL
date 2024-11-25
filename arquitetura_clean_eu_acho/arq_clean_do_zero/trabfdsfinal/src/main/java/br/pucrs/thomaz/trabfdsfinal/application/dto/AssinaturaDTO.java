@@ -23,7 +23,7 @@ public class AssinaturaDTO {
         this.aplicativo = aplicativo;
         this.cliente = cliente;
         this.inicioVigencia = LocalDate.now();
-        this.fimVigencia = this.inicioVigencia.plusDays(30);
+        this.fimVigencia = this.inicioVigencia.plusDays(7);
     }
 
     // Getters e Setters

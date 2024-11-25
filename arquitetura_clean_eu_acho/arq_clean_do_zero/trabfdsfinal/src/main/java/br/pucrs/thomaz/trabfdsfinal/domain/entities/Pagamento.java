@@ -50,6 +50,23 @@ public class Pagamento {
         if(dataPagamento == null){
             throw new IllegalArgumentException("Data de pagamento não pode ser nula");
         }
+
+        double valorEsperado = assinatura.getAplicativo().getCustoMensal();
+
+        if (valorPago != valorEsperado) {
+            throw new IllegalArgumentException("Valor pago não corresponde ao valor esperado da assinatura.");
+        }
+        
+        LocalDate novaDataValidade;
+        if (assinatura.getFimVigencia().isBefore(dataPagamento)) {
+            // Assinatura vencida: reativa e adiciona 30 dias a partir da data de pagamento
+            novaDataValidade = dataPagamento.plusDays(30);
+        } else {
+            // Assinatura ativa: estende por 30 dias a partir da data atual de validade
+            novaDataValidade = assinatura.getFimVigencia().plusDays(30);
+        }
+        assinatura.setFimVigencia(novaDataValidade);
+    
         return new Pagamento(assinatura, valorPago, dataPagamento, promocao);
     }
 }
