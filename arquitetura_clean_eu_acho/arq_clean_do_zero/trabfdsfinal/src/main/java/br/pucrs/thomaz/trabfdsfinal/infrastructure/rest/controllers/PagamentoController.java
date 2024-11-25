@@ -12,7 +12,7 @@ import br.pucrs.thomaz.trabfdsfinal.application.usecase.Pagamento.PagamentoUseCa
 import br.pucrs.thomaz.trabfdsfinal.domain.entities.Pagamento;
 
 @RestController
-@RequestMapping("/pagamentos")
+@RequestMapping("/servcard/pagamentos")
 public class PagamentoController {
 
     private final PagamentoUseCase pagamentoUseCase;
@@ -24,7 +24,7 @@ public class PagamentoController {
     }
 
     // Endpoint para processar o pagamento
-    @PostMapping
+    @PostMapping("/registrarpagamento")
     public ResponseEntity<String> processarPagamento(@RequestBody PagamentoDTO pagamentoDTO) {
         try {
             String resultado = pagamentoUseCase.processarPagamento(
