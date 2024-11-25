@@ -18,3 +18,25 @@ INSERT INTO Cliente (nome, email) VALUES ('Ema Gonzales', 'gonzalesema@gmail.com
 INSERT INTO Cliente (nome, email) VALUES ('Haroldo Estilos', 'haroldo.estilos@gmail.com');
 INSERT INTO Cliente (nome, email) VALUES ('Bruna Tramontina', 'tramontina.bruna@hotmail.com');
 INSERT INTO Cliente (nome, email) VALUES ('Eliana Pase', 'elianaapase.pase@gmail.com');
+
+INSERT INTO Assinatura (aplicativo_codigo, cliente_codigo, inicio_vigencia, fim_vigencia, status)
+VALUES 
+((SELECT codigo FROM Aplicativo WHERE nome = 'Aplicativo de Musica'),
+ (SELECT codigo FROM Cliente WHERE nome = 'Joao Silva'),
+ '2024-11-24', '2024-12-01', TRUE),
+
+((SELECT codigo FROM Aplicativo WHERE nome = 'Aplicativo de Compras'),
+ (SELECT codigo FROM Cliente WHERE nome = 'Amelia Pinto'),
+ '2024-11-24', '2024-12-01', TRUE),
+
+((SELECT codigo FROM Aplicativo WHERE nome = 'Aplicativo de Delivery'),
+ (SELECT codigo FROM Cliente WHERE nome = 'Janaina Jana'),
+ '2024-11-24', '2024-12-01', TRUE),
+
+((SELECT codigo FROM Aplicativo WHERE nome = 'Aplicativo de Viagens'),
+ (SELECT codigo FROM Cliente WHERE nome = 'Breno Rei'),
+ '2024-11-24', '2024-12-01', TRUE),
+
+((SELECT codigo FROM Aplicativo WHERE nome = 'Aplicativo de Relacionamento'),
+ (SELECT codigo FROM Cliente WHERE nome = 'Alexandre Costa'),
+ '2024-11-24', '2024-12-01', TRUE);
