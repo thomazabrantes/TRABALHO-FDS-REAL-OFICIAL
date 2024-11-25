@@ -12,7 +12,7 @@ import br.pucrs.thomaz.trabfdsfinal.application.usecase.Pagamento.PagamentoUseCa
 import br.pucrs.thomaz.trabfdsfinal.domain.entities.Pagamento;
 
 @RestController
-@RequestMapping("/pagamentos")
+@RequestMapping("/servcad/pagamentos")
 public class PagamentoController {
 
     private final PagamentoUseCase pagamentoUseCase;
