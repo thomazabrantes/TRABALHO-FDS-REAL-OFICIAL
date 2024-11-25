@@ -18,7 +18,7 @@ import br.pucrs.thomaz.trabfdsfinal.application.usecase.Assinatura.EditarAssinat
 import br.pucrs.thomaz.trabfdsfinal.application.usecase.Assinatura.ListarAssinaturasUseCase;
 
 @RestController
-@RequestMapping("/assinaturas")
+@RequestMapping("/servcad/assinaturas")
 public class AssinaturaController {
     private final CriarAssinaturaUseCase criarAssinaturaUseCase;
     private final EditarAssinaturaUseCase editarAssinaturaUseCase;
