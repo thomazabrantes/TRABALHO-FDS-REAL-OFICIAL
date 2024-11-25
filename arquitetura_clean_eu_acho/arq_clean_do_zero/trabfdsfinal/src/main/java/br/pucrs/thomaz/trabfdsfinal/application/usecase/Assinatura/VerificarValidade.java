@@ -11,7 +11,7 @@ public class VerificarValidade{
     }
 
     public boolean execute(Long clienteId, Long assinaturaId) {
-        Assinatura assinatura = assinaturaRepository.findByClienteAndAssinatura(clienteId, assinaturaId)
+        Assinatura assinatura = assinaturaRepository.findByClienteCodigoAndCodigo(clienteId, assinaturaId)
             .orElseThrow(() -> new IllegalArgumentException("Assinatura ou Cliente não encontrado"));
 
         return assinatura.isValida();
