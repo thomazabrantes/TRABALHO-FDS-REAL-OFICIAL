@@ -1,8 +1,11 @@
 package br.pucrs.thomaz.trabfdsfinal.application.usecase.Assinatura;
 
+import org.springframework.stereotype.Service;
+
 import br.pucrs.thomaz.trabfdsfinal.domain.entities.Assinatura;
 import br.pucrs.thomaz.trabfdsfinal.domain.repository.AssinaturaRepository;
 
+@Service
 public class VerificarValidade{
     private final AssinaturaRepository assinaturaRepository;
 
