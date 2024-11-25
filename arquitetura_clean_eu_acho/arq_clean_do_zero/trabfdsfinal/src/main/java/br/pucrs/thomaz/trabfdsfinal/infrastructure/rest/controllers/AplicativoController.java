@@ -87,4 +87,18 @@ public class AplicativoController {
         return ResponseEntity.ok(valida);
     
     }
+
+    @PostMapping("/atualizacusto/{idAplicativo}")
+public ResponseEntity<AplicativoDTO> atualizarCustoMensal(@PathVariable Long idAplicativo, @RequestBody Double custo) {
+    try {
+        // Chama o caso de uso existente para editar o aplicativo
+        AplicativoDTO atualizado = editarAplicativoUseCase.execute(idAplicativo, null, custo);
+        return new ResponseEntity<>(atualizado, HttpStatus.OK); // Retorna o DTO atualizado
+    } catch (IllegalArgumentException e) {
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND); // Código não encontrado
+    } catch (Exception e) {
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST); // Outros erros
+    }
+}
+
 }

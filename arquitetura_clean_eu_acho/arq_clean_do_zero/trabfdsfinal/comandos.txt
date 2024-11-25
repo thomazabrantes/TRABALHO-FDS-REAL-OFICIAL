@@ -48,6 +48,13 @@ curl -X PUT http://localhost:8080/servcad/aplicativos/1 \
      -d '{"nome": "Aplicativo de Música Premium", "custoMensal": 14.99}'
 
 ################################################################################
+########### ALTERAR O CUSTO MENSAL DE UM APLICATIVO
+
+curl -X POST http://localhost:8080/servcad/aplicativos/atualizacusto/1 \
+-H "Content-Type: application/json" \
+-d "50.0"
+
+################################################################################
 ########### LISTAR APLICATIVOS
 
 curl -X GET http://localhost:8080/servcad/aplicativos
@@ -104,13 +111,21 @@ curl -X GET http://localhost:8080/servcad/aplicativos/1/assinaturas
 curl -X GET http://localhost:8080/servcad/aplicativos/2/assinaturas
 
 ################################################################################ 
-########### LISTAR TODAS AS ASSINATURAS
-curl -X GET http://localhost:8080/servcad/assinaturas
-
-################################################################################ 
 ########### RETORNAR ASSINATURAS CONFORME TIPOS
 curl -X GET http://localhost:8080/servcad/assinaturas/ATIVAS
 
 curl -X GET http://localhost:8080/servcad/assinaturas/CANCELADAS
 
 curl -X GET http://localhost:8080/servcad/assinaturas/TODAS
+
+################################################################################ 
+########### REGISTRAR PAGAMENTO
+curl -X POST http://localhost:8080/registrarpagamento \
+     -H "Content-Type: application/json" \
+     -d '{
+           "assinatura": {
+             "codigo": 3
+           },
+           "valorPago": 6.75,
+           "promocao": "PROMO10"
+         }'
