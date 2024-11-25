@@ -1,0 +1,108 @@
+################################################################################
+########### CRIAR CLIENTE
+
+curl -X POST http://localhost:8080/clientes \
+     -H "Content-Type: application/json" \
+     -d '{"nome": "João Silva", "email": "joao.silva@example.com"}'
+
+curl -X POST http://localhost:8080/clientes \
+     -H "Content-Type: application/json" \
+     -d '{"nome": "Paulo Pinto", "email": "paulo.pinto@example.com"}'
+
+curl -X POST http://localhost:8080/clientes \
+     -H "Content-Type: application/json" \
+     -d '{"nome": "Kátia Suzana", "email": "katia.suzana@example.com"}'
+
+################################################################################
+########### EDITAR CLIENTE
+
+curl -X PUT http://localhost:8080/clientes/1 \
+     -H "Content-Type: application/json" \
+     -d '{"nome": "Julia Lemos Amaral", "email": "lemos.julia@example.com"}'
+
+################################################################################
+########### LISTAR CLIENTES
+
+curl -X GET http://localhost:8080/clientes
+
+################################################################################
+########### CRIAR APLICATIVO
+
+curl -X POST http://localhost:8080/aplicativos \
+     -H "Content-Type: application/json" \
+     -d '{"nome": "Aplicativo de Música", "custoMensal": 9.99}'
+
+curl -X POST http://localhost:8080/aplicativos \
+     -H "Content-Type: application/json" \
+     -d '{"nome": "Aplicativo de Compras", "custoMensal": 2.99}'
+
+curl -X POST http://localhost:8080/aplicativos \
+     -H "Content-Type: application/json" \
+     -d '{"nome": "Aplicativo Legalzao", "custoMensal": 23.96}'
+
+################################################################################
+########### EDITAR APLICATIVO
+
+curl -X PUT http://localhost:8080/aplicativos/1 \
+     -H "Content-Type: application/json" \
+     -d '{"nome": "Aplicativo de Música Premium", "custoMensal": 14.99}'
+
+################################################################################
+########### LISTAR APLICATIVOS
+
+curl -X GET http://localhost:8080/aplicativos
+
+################################################################################
+########### CADASTRAR ASSINATURA DE UM APLICATIVO POR PARTE DE UM CLIENTE
+
+curl -X POST http://localhost:8080/assinaturas \
+-H "Content-Type: application/json" \
+-d '{
+  "aplicativo": {
+    "codigo": 1
+  },
+  "cliente": {
+    "codigo": 1
+  }
+}'
+
+curl -X POST http://localhost:8080/assinaturas \
+-H "Content-Type: application/json" \
+-d '{
+  "aplicativo": {
+    "codigo": 5
+  },
+  "cliente": {
+    "codigo": 3
+  }
+}'
+
+
+################################################################################
+########### RESPONDER SE UM PAR CLIENTE/ASSINATURA CONTINUA VÁLIDO
+
+curl -X GET http://localhost:8080/clientes/1/assinaturas/1/valida
+
+curl -X GET http://localhost:8080/clientes/2/assinaturas/2/valida
+
+curl -X GET http://localhost:8080/clientes/3/assinaturas/3/valida
+
+################################################################################
+########### LISTAR AS ASSINATURAS DE UM CLIENTE
+
+curl -X GET http://localhost:8080/clientes/1/assinaturas
+
+curl -X GET http://localhost:8080/clientes/2/assinaturas
+
+curl -X GET http://localhost:8080/clientes/3/assinaturas
+
+################################################################################
+########### LISTAR OS ASSINANTES DE UM APLICATIVO - não deu certo ;((
+
+curl -X GET http://localhost:8080/aplicativos/1/assinantes
+
+curl -X GET http://localhost:8080/aplicativos/2/assinantes
+
+################################################################################ 
+########### LISTAR TODAS AS ASSINATURAS
+curl -X GET http://localhost:8080/assinaturas
