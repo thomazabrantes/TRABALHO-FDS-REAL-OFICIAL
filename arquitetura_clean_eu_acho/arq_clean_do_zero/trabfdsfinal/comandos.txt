@@ -106,3 +106,11 @@ curl -X GET http://localhost:8080/servcad/aplicativos/2/assinaturas
 ################################################################################ 
 ########### LISTAR TODAS AS ASSINATURAS
 curl -X GET http://localhost:8080/servcad/assinaturas
+
+################################################################################ 
+########### RETORNAR ASSINATURAS CONFORME TIPOS
+curl -X GET http://localhost:8080/servcad/assinaturas/ATIVAS
+
+curl -X GET http://localhost:8080/servcad/assinaturas/CANCELADAS
+
+curl -X GET http://localhost:8080/servcad/assinaturas/TODAS

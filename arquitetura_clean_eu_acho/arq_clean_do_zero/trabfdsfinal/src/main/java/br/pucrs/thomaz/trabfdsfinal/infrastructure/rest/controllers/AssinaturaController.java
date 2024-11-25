@@ -24,15 +24,14 @@ public class AssinaturaController {
     private final EditarAssinaturaUseCase editarAssinaturaUseCase;
     private final ListarAssinaturasUseCase listarAssinaturasUseCase;
 
-
-    public AssinaturaController(CriarAssinaturaUseCase criarAssinaturaUseCase, EditarAssinaturaUseCase editarAssinaturaUseCase, ListarAssinaturasUseCase listarAssinaturasUseCase){
+    public AssinaturaController(CriarAssinaturaUseCase criarAssinaturaUseCase, EditarAssinaturaUseCase editarAssinaturaUseCase, ListarAssinaturasUseCase listarAssinaturasUseCase) {
         this.criarAssinaturaUseCase = criarAssinaturaUseCase;
         this.editarAssinaturaUseCase = editarAssinaturaUseCase;
         this.listarAssinaturasUseCase = listarAssinaturasUseCase;
     }
 
     @PostMapping
-    public ResponseEntity<AssinaturaDTO> criarAssinatura (@RequestBody AssinaturaDTO assinaturaDTO) {
+    public ResponseEntity<AssinaturaDTO> criarAssinatura(@RequestBody AssinaturaDTO assinaturaDTO) {
         try {
             AssinaturaDTO nova = criarAssinaturaUseCase.execute(assinaturaDTO.getAplicativo(), assinaturaDTO.getCliente());
             return new ResponseEntity<>(nova, HttpStatus.CREATED);
@@ -41,18 +40,20 @@ public class AssinaturaController {
         }
     }
 
-    @GetMapping 
-    public ResponseEntity<List<AssinaturaDTO>> listarAssinaturas () {
+    @GetMapping("/{tipo}")
+    public ResponseEntity<List<AssinaturaDTO>> listarAssinaturas(@PathVariable String tipo) {
         try {
-            List<AssinaturaDTO> lista = listarAssinaturasUseCase.execute();
+            List<AssinaturaDTO> lista = listarAssinaturasUseCase.execute(tipo);
             return new ResponseEntity<>(lista, HttpStatus.OK);
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @PutMapping("/{codigo}")
-    public ResponseEntity<AssinaturaDTO> editarAssinatura (@PathVariable Long codigo, @RequestBody AssinaturaDTO assinaturaDTO) {
+    public ResponseEntity<AssinaturaDTO> editarAssinatura(@PathVariable Long codigo, @RequestBody AssinaturaDTO assinaturaDTO) {
         try {
             AssinaturaDTO nova = editarAssinaturaUseCase.execute(codigo, assinaturaDTO.getAplicativo(), assinaturaDTO.getCliente());
             return new ResponseEntity<>(nova, HttpStatus.OK);
@@ -62,5 +63,4 @@ public class AssinaturaController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
-    
 }
