@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/servcad/aplicativos")
+@RequestMapping("/aplicativos")
 public class AplicativoController {
 
     private final CriarAplicativoUseCase criarAplicativoUseCase;

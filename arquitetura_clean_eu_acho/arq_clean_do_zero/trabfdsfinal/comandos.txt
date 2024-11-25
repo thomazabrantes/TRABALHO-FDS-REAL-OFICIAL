@@ -99,9 +99,9 @@ curl -X GET http://localhost:8080/clientes/3/assinaturas
 ################################################################################
 ########### LISTAR OS ASSINANTES DE UM APLICATIVO - não deu certo ;((
 
-curl -X GET http://localhost:8080/aplicativos/1/assinantes
+curl -X GET http://localhost:8080/aplicativos/1/assinaturas
 
-curl -X GET http://localhost:8080/aplicativos/2/assinantes
+curl -X GET http://localhost:8080/aplicativos/2/assinaturas
 
 ################################################################################ 
 ########### LISTAR TODAS AS ASSINATURAS
