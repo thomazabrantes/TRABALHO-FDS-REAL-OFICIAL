@@ -43,6 +43,14 @@ public class Assinatura {
         status = true;
     }
 
+    public Assinatura(Aplicativo aplicativo, Cliente cliente, LocalDate inicioVigencia, LocalDate fimVigencia, boolean status) {
+        this.aplicativo = aplicativo;
+        this.cliente = cliente;
+        this.inicioVigencia = inicioVigencia;
+        this.fimVigencia = fimVigencia;
+        this.status = status;
+    }
+
     public static Assinatura criar(Aplicativo aplicativo, Cliente cliente) {
         if (aplicativo == null) {
             throw new IllegalArgumentException("Aplicativo não pode ser nulo");
@@ -50,19 +58,6 @@ public class Assinatura {
         if (cliente == null) {
             throw new IllegalArgumentException("Cliente não pode ser nulo");
         }
-        /*if (inicioVigencia == null) {
-            throw new IllegalArgumentException("Data de início de vigência não pode ser nula");
-        }
-        if (fimVigencia == null) {
-            throw new IllegalArgumentException("Data de fim de vigência não pode ser nula");
-        }
-        if (inicioVigencia.isAfter(fimVigencia)) {
-            throw new IllegalArgumentException("Data de início de vigência não pode ser posterior à data de fim de vigência");
-        }
-        if (fimVigencia.isBefore(LocalDate.now())) {
-            throw new IllegalArgumentException("Data de fim de vigência não pode ser no passado");
-        }
-        */
         return new Assinatura(aplicativo, cliente);
     }
 
