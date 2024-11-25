@@ -16,6 +16,8 @@ C:\Users\anaan\TRABALHO-FDS-REAL-OFICIAL-4\arquitetura_clean_eu_acho\arq_clean_d
 C:\Users\anaan\TRABALHO-FDS-REAL-OFICIAL-4\arquitetura_clean_eu_acho\arq_clean_do_zero\trabfdsfinal\src\main\java\br\pucrs\thomaz\trabfdsfinal\application\usecase\Assinatura\CriarAssinaturaUseCase.java
 C:\Users\anaan\TRABALHO-FDS-REAL-OFICIAL-4\arquitetura_clean_eu_acho\arq_clean_do_zero\trabfdsfinal\src\main\java\br\pucrs\thomaz\trabfdsfinal\application\usecase\Assinatura\EditarAssinaturaUseCase.java
 C:\Users\anaan\TRABALHO-FDS-REAL-OFICIAL-4\arquitetura_clean_eu_acho\arq_clean_do_zero\trabfdsfinal\src\main\java\br\pucrs\thomaz\trabfdsfinal\application\usecase\Assinatura\ListarAssinaturasUseCase.java
+C:\Users\anaan\TRABALHO-FDS-REAL-OFICIAL-4\arquitetura_clean_eu_acho\arq_clean_do_zero\trabfdsfinal\src\main\java\br\pucrs\thomaz\trabfdsfinal\application\usecase\Assinatura\ListarPagamentosUseCase.java
+C:\Users\anaan\TRABALHO-FDS-REAL-OFICIAL-4\arquitetura_clean_eu_acho\arq_clean_do_zero\trabfdsfinal\src\main\java\br\pucrs\thomaz\trabfdsfinal\application\usecase\Assinatura\PagamentoUseCase.java
 C:\Users\anaan\TRABALHO-FDS-REAL-OFICIAL-4\arquitetura_clean_eu_acho\arq_clean_do_zero\trabfdsfinal\src\main\java\br\pucrs\thomaz\trabfdsfinal\application\usecase\Assinatura\VerificarValidade.java
 C:\Users\anaan\TRABALHO-FDS-REAL-OFICIAL-4\arquitetura_clean_eu_acho\arq_clean_do_zero\trabfdsfinal\src\main\java\br\pucrs\thomaz\trabfdsfinal\application\usecase\Cliente\CriarClienteUseCase.java
 C:\Users\anaan\TRABALHO-FDS-REAL-OFICIAL-4\arquitetura_clean_eu_acho\arq_clean_do_zero\trabfdsfinal\src\main\java\br\pucrs\thomaz\trabfdsfinal\application\usecase\Cliente\EditarClienteUseCase.java
@@ -34,5 +36,6 @@ C:\Users\anaan\TRABALHO-FDS-REAL-OFICIAL-4\arquitetura_clean_eu_acho\arq_clean_d
 C:\Users\anaan\TRABALHO-FDS-REAL-OFICIAL-4\arquitetura_clean_eu_acho\arq_clean_do_zero\trabfdsfinal\src\main\java\br\pucrs\thomaz\trabfdsfinal\infrastructure\rest\controllers\AssinaturaController.java
 C:\Users\anaan\TRABALHO-FDS-REAL-OFICIAL-4\arquitetura_clean_eu_acho\arq_clean_do_zero\trabfdsfinal\src\main\java\br\pucrs\thomaz\trabfdsfinal\infrastructure\rest\controllers\ClienteController.java
 C:\Users\anaan\TRABALHO-FDS-REAL-OFICIAL-4\arquitetura_clean_eu_acho\arq_clean_do_zero\trabfdsfinal\src\main\java\br\pucrs\thomaz\trabfdsfinal\infrastructure\rest\controllers\MainController.java
+C:\Users\anaan\TRABALHO-FDS-REAL-OFICIAL-4\arquitetura_clean_eu_acho\arq_clean_do_zero\trabfdsfinal\src\main\java\br\pucrs\thomaz\trabfdsfinal\infrastructure\rest\controllers\PagamentoController.java
 C:\Users\anaan\TRABALHO-FDS-REAL-OFICIAL-4\arquitetura_clean_eu_acho\arq_clean_do_zero\trabfdsfinal\src\main\java\br\pucrs\thomaz\trabfdsfinal\infrastructure\rest\controllers\ReponseEntity.java
 C:\Users\anaan\TRABALHO-FDS-REAL-OFICIAL-4\arquitetura_clean_eu_acho\arq_clean_do_zero\trabfdsfinal\src\main\java\br\pucrs\thomaz\trabfdsfinal\TrabfdsfinalApplication.java
